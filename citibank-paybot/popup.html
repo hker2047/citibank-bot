@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HangSeng Paybot</title>
+    <style type="text/css">
+        body {
+            width: 25rem;
+        }
+        .label-aligned {
+            align-items: center;
+        }
+    </style>
+    <link rel="stylesheet" href="mini-default-3.0.1.min.css">
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <h3>HangSeng Paybot</h3>
+    <form>
+        <div class="row label-aligned">
+            <div class="col-sm-4">
+                <label for="billTypeSelect">Bill type</label>
+            </div>
+            <div class="col-sm-8">
+                <select id="billTypeSelect">
+                    <option value="REGISTERED_PAYEE" selected>Registered payee</option>
+                    <option value="TAX">Tax</option>
+                </select>
+            </div>
+        </div>
+        <div id="payeeNameDiv" class="row label-aligned">
+            <div class="col-sm-4">
+                <label for="payeeNameInput">Payee name</label>
+            </div>
+            <div class="col-sm-8">
+                <input id="payeeNameInput" type="text" placeholder="name of bill"/>
+            </div>
+        </div>
+        <div id="taxAccountNumberDiv" class="row label-aligned">
+            <div class="col-sm-4">
+                <label for="taxAccountNumberInput">Tax account</label>
+            </div>
+            <div class="col-sm-8">
+                <input id="taxAccountNumberInput" type="text" placeholder="charge number of tax bill"/>
+            </div>
+        </div>
+        <div class="row label-aligned">
+            <div class="col-sm-4">
+                <label for="payAccountInput">Account</label>
+            </div>
+            <div class="col-sm-8">
+                <input id="payAccountInput" type="text" placeholder="name of account"/>
+            </div>
+        </div>
+        <div class="row label-aligned">
+            <div class="col-sm-4">
+                <label for="payAmountInput">Amount</label>
+            </div>
+            <div class="col-sm-8">
+                <input id="payAmountInput" type="number" min="1" step=".1"/>
+            </div>
+        </div>
+        <div class="row label-aligned">
+            <div class="col-sm-4">
+                <label for="payCountInput">Count</label>
+            </div>
+            <div class="col-sm-8">
+                <input id="payCountInput" type="number" min="1"/>
+            </div>
+        </div>
+        <div class="row label-aligned">
+            <div class="col-sm-12">
+                <button id="startButton" class="primary">Start</button>
+                <button id="stopButton" disabled="true">Stop</button>
+                <progress id="payProgress" value="0" max="0"></progress>
+            </div>
+        </div>
+        <span id="errorText" style="display:none" class="card error"></span>
+    </form >
+    <form>
+        <div class="row label-aligned">
+            <div class="col-sm-4">
+                <label>Total paid</label>
+            </div>
+            <div class="col-sm-8">
+                <input id="totalPaidInput" type="text" readonly="true"/>
+            </div>
+        </div>
+        <button id="resetButton">Reset counter</button>
+    </form>
+  </body>
+</html>
